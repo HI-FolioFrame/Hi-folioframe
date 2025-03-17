@@ -1,6 +1,6 @@
-@font-face {
+/* @font-face {
     font-family: "OTF B";
-    /* font-weight: 50; */
+
     src: url("./fonts/Hakgyoansim Dunggeunmiso OTF B.otf") format("truetype");
   }
 
@@ -19,6 +19,25 @@
     font-family: "TTR R";
     src: url("./fonts/Hakgyoansim Dunggeunmiso TTF R.ttf");
   }
+ */
 
 
+ @font-face {
+  font-family: "OTF B";
+  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ OTF\ B.otf") format("opentype");
+}
 
+@font-face {
+  font-family: "OTF R";
+  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ OTF\ R.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "TTF B";
+  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ TTF\ B.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TTR R";
+  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ TTF\ R.ttf") format("truetype");
+}

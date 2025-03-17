@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import InfoSection from "../components/ProfileEditPage/InfoSection";
+import InfoSection from "../../src/assets/images/PortfolioEditPage/infoIcon.svg";
 
 import {
   getCurrentUser,
