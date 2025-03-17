@@ -188,7 +188,7 @@ const deleteHackathon = async (hackId) => {
 
 
 // 해커톤 지원
-export const updateParticipant = async (hackId, userId) => {
+ const updateParticipant = async (hackId, userId) => {
   console.log(typeof hackId);
 
   const hackathon = oriHackathons.get(Number(hackId));
@@ -249,7 +249,7 @@ export const updateParticipant = async (hackId, userId) => {
 
 //     return hackathon.participant.includes(userId) ? true : false;
 // }
-export const isIncludedParticipant = (hackId, userId) => {
+ const isIncludedParticipant = (hackId, userId) => {
   const hackathon = oriHackathons.get(hackId);
   if (!hackathon) return false;
   const value = hackathon.participant.includes(userId);
@@ -263,4 +263,4 @@ export const isIncludedParticipant = (hackId, userId) => {
 };
 
 
-export { deleteHackathon };
+export { deleteHackathon,updateParticipant,isIncludedParticipant };
