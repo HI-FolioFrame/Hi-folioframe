@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import InfoSection from "../../src/assets/images/PortfolioEditPage/infoIcon.svg";
+import InfoSection from "../components/ProfileEditPage/InfoSection";
 
 import {
   getCurrentUser,
@@ -19,7 +19,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 //i 아이콘
-import infoIcon from "../assets/images/PortfolioEditPage/InfoIcon.svg";
+import infoIcon from "../../src/assets/images/PortfolioEditPage/infoIcon.svg";
 
 // 모달 컴포넌트
 const Modal = ({ isOpen, onClose, onConfirm }) => {
