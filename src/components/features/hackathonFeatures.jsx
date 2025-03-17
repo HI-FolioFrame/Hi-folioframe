@@ -159,7 +159,7 @@ export const updateHackathon = async (hackId, field, newValue) => {
         console.error('필드 업데이트 중 오류가 발생했습니다:', error);
 };
 
-export const deleteHackathon = async (hackId) => {
+const deleteHackathon = async (hackId) => {
   try {
     const filePath = "src/components/commmon/dummydata/hackathonInfo.jsx";
     const idField = "hackId";
@@ -184,6 +184,8 @@ export const deleteHackathon = async (hackId) => {
     console.error("해커톤 삭제 중 오류가 발생했습니다:", error);
   }
 };
+
+
 
 // 해커톤 지원
 export const updateParticipant = async (hackId, userId) => {
@@ -259,3 +261,6 @@ export const isIncludedParticipant = (hackId, userId) => {
   }
   // return hackathon.participant.includes(userId);
 };
+
+
+export { deleteHackathon };
