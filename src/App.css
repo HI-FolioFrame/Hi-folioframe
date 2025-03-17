@@ -21,23 +21,22 @@
   }
  */
 
-
  @font-face {
   font-family: "OTF B";
-  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ OTF\ B.otf") format("opentype");
+  src: url("/public/fonts/HakgyoansimDunggeunmiso-OTF-B.otf") format("opentype");
 }
 
 @font-face {
   font-family: "OTF R";
-  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ OTF\ R.otf") format("opentype");
+  src: url("/public/fonts/HakgyoansimDunggeunmiso-OTF-R.otf") format("opentype");
 }
 
 @font-face {
   font-family: "TTF B";
-  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ TTF\ B.ttf") format("truetype");
+  src: url("/public/fonts/HakgyoansimDunggeunmiso-TTF-B.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "TTR R";
-  src: url("../src/fonts/Hakgyoansim\ Dunggeunmiso\ TTF\ R.ttf") format("truetype");
+  src: url("/public/fonts/HakgyoansimDunggeunmiso-TTF-R.ttf") format("truetype");
 }
