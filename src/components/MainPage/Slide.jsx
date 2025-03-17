@@ -14,7 +14,7 @@ import N2 from "../../assets/icons/Mainpage/N2.svg";
 import N3 from "../../assets/icons/Mainpage/N3.svg";
 import N4 from "../../assets/icons/Mainpage/N4.svg";
 import job from "../../assets/images/Mainpage/JOB.jpg";
-import hackathon from "../../assets/images/Mainpage/hackathon.jpg";
+// import hackathon from "../../assets/images/Mainpage/hackathon.jpg";
 
 
 export default () => {
@@ -66,7 +66,7 @@ export default () => {
           <SwiperSlide>
                   <N2Image src={N2} alt="Number2"/>
                   <VideoWrapper2>
-                      <HackathonImage src={hackathon} alt="해커톤"/>
+                      {/* <HackathonImage src={hackathon} alt="해커톤"/> */}
                   <TextWrapper>
                       <HackathonText>함께 경험을<br></br> 쌓아볼까요?</HackathonText>
                   </TextWrapper>
