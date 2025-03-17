@@ -263,4 +263,8 @@ const deleteHackathon = async (hackId) => {
 };
 
 
-export { deleteHackathon,updateParticipant,isIncludedParticipant };
+// export default {
+//   deleteHackathon,
+//   updateParticipant,
+//   isIncludedParticipant,
+// };
