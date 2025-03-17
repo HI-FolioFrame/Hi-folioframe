@@ -157,107 +157,110 @@ export const updateHackathon = async (hackId, field, newValue) => {
         console.log(`${field} 필드가 성공적으로 업데이트되었습니다.`);
     } catch (error) {
         console.error('필드 업데이트 중 오류가 발생했습니다:', error);
+    }
 };
 
-// const deleteHackathon = async (hackId) => {
-//   try {
-//     const filePath = "src/components/commmon/dummydata/hackathonInfo.jsx";
-//     const idField = "hackId";
+const deleteHackathon = async (hackId) => {
+  try {
+    const filePath = "src/components/commmon/dummydata/hackathonInfo.jsx";
+    const idField = "hackId";
 
-//     await fetch("http://localhost:3000/delete-object", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         filePath,
-//         idField,
-//         id: Number(hackId),
-//       }),
-//     });
+    await fetch("http://localhost:3000/delete-object", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filePath,
+        idField,
+        id: Number(hackId),
+      }),
+    });
 
-//     // Map 객체에서도 제거
-//     oriHackathons.delete(hackId);
+    // Map 객체에서도 제거
+    oriHackathons.delete(hackId);
 
-//     console.log(`해커톤 ID ${hackId}가 성공적으로 삭제되었습니다.`);
-//   } catch (error) {
-//     console.error("해커톤 삭제 중 오류가 발생했습니다:", error);
-//   }
-// };
+    console.log(`해커톤 ID ${hackId}가 성공적으로 삭제되었습니다.`);
+  } catch (error) {
+    console.error("해커톤 삭제 중 오류가 발생했습니다:", error);
+  }
+};
 
 
 
-// // 해커톤 지원
-// const updateParticipant = async (hackId, userId) => {
-//   console.log(typeof hackId);
+// 해커톤 지원
+const updateParticipant = async (hackId, userId) => {
+  console.log(typeof hackId);
 
-//   const hackathon = oriHackathons.get(Number(hackId));
+  const hackathon = oriHackathons.get(Number(hackId));
 
-//   // hackathon이 undefined인 경우 처리
-//   if (!hackathon) {
-//     console.error(`Hackathon with id ${hackId} not found.`);
-//     return;
-//   }
+  // hackathon이 undefined인 경우 처리
+  if (!hackathon) {
+    console.error(`Hackathon with id ${hackId} not found.`);
+    return;
+  }
 
-//   if (hackathon["participant"].includes(userId)) {
-//     console.log("이미 참여하는 해커톤에 지원할 수 없음");
-//     // alert("이미 참여하는 해커톤에 지원할 수 없습니다.");
-//     return;
-//   }
+  if (hackathon["participant"].includes(userId)) {
+    console.log("이미 참여하는 해커톤에 지원할 수 없음");
+    // alert("이미 참여하는 해커톤에 지원할 수 없습니다.");
+    return;
+  }
 
-//   const newMemNumber = hackathon["participant"].length + 1;
+  const newMemNumber = hackathon["participant"].length + 1;
 
-//   if (hackathon["maxMemNumber"] < newMemNumber) {
-//     alert("모집 인원을 초과하여 지원할 수 없습니다.");
-//     return;
-//   }
+  if (hackathon["maxMemNumber"] < newMemNumber) {
+    alert("모집 인원을 초과하여 지원할 수 없습니다.");
+    return;
+  }
 
-//   try {
-//     const filePath = "src/components/commmon/dummydata/hackathonInfo.jsx";
+  try {
+    const filePath = "src/components/commmon/dummydata/hackathonInfo.jsx";
 
-//     // 필드를 업데이트하는 API 호출
-//     await fetch("http://localhost:3000/patch-participant", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         filePath,
-//         hackId: Number(hackId),
-//         userId: String(userId),
-//         newMemNumber,
-//       }),
-//     });
+    // 필드를 업데이트하는 API 호출
+    await fetch("http://localhost:3000/patch-participant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filePath,
+        hackId: Number(hackId),
+        userId: String(userId),
+        newMemNumber,
+      }),
+    });
 
-//     // Map 객체도 업데이트
-//     hackathon["participant"] = hackathon["participant"] || []; // participant가 없으면 빈 배열로 초기화
-//     hackathon["participant"].push(userId);
-//     oriHackathons.set(hackId, hackathon);
+    // Map 객체도 업데이트
+    hackathon["participant"] = hackathon["participant"] || []; // participant가 없으면 빈 배열로 초기화
+    hackathon["participant"].push(userId);
+    oriHackathons.set(hackId, hackathon);
 
-//     console.log(
-//       `${hackathon["participant"]} 필드가 성공적으로 업데이트되었습니다.`
-//     );
-//   } catch (error) {
-//     console.error("필드 업데이트 중 오류가 발생했습니다:", error);
-//   }
-// };
+    console.log(
+      `${hackathon["participant"]} 필드가 성공적으로 업데이트되었습니다.`
+    );
+  } catch (error) {
+    console.error("필드 업데이트 중 오류가 발생했습니다:", error);
+  }
+};
 
-// // export const isIncludedParticipant = (hackId, userId) => {
-// //     const hackathon = oriHackathons.get(hackId);
-// //     console.log(userId);
-// //     if (!hackathon) return;
+// export const isIncludedParticipant = (hackId, userId) => {
+//     const hackathon = oriHackathons.get(hackId);
+//     console.log(userId);
+//     if (!hackathon) return;
 
-// //     return hackathon.participant.includes(userId) ? true : false;
-// // }
-//  const isIncludedParticipant = (hackId, userId) => {
-//   const hackathon = oriHackathons.get(hackId);
-//   if (!hackathon) return false;
-//   const value = hackathon.participant.includes(userId);
-//   if (value) {
-//     console.log(value);
-//     return true;
-//   } else {
-//     return false;
-//   }
-//   // return hackathon.participant.includes(userId);
-// };
+//     return hackathon.participant.includes(userId) ? true : false;
+// }
+ const isIncludedParticipant = (hackId, userId) => {
+  const hackathon = oriHackathons.get(hackId);
+  if (!hackathon) return false;
+  const value = hackathon.participant.includes(userId);
+  if (value) {
+    console.log(value);
+    return true;
+  } else {
+    return false;
+  }
+  // return hackathon.participant.includes(userId);
+};
+
+export { deleteHackathon, updateParticipant, isIncludedParticipant };
