@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"  # 함수 디렉토리 지정
+  publish = "."  # 빌드 디렉토리를 사용하지 않음
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api"
+  status = 200
+  force = true

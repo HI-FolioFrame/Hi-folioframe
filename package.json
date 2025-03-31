@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build": "netlify-lambda build netlify/functions-build && vite build",
+    "start": "netlify dev",
     "dev": "concurrently \"npm run server\" \"vite\"",
     "server": "node fileServer.js",
-    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,11 +15,13 @@
     "body-parser": "^1.20.3",
     "cores": "^0.8.5",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-session": "^1.18.1",
     "fs-extra": "^11.2.0",
     "fund": "^1.0.0",
     "multer": "^1.4.5-lts.1",
+    "netlify-cli": "^19.0.2",
+    "netlify-lambda": "^2.0.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
@@ -27,6 +30,7 @@
     "react-router-dom": "^6.28.0",
     "remark-gfm": "^4.0.0",
     "sass": "^1.79.3",
+    "serverless-http": "^3.2.0",
     "styled-components": "^6.1.13",
     "swiper": "^11.1.14",
     "vite-plugin-svgr": "^4.3.0"
@@ -35,12 +39,12 @@
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^7.0.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
-    "vite": "^5.4.1"
+    "vite": "^5.4.15"
   }
 }
