@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
 import { Navigate } from "react-router-dom";
 import MainCard from "../components/commmon/MainCard";
@@ -13,77 +15,97 @@ import searchImg from "../assets/icons/Header/search.png";
 import Slide from "../components/MainPage/Slide";
 
 const MainPage = () => {
+  // return (
+  //   <MainContainer>
+  //     {/* 메인 비디오  */}
+  //     <MainPageWrapper>
+  //       <VideoWrapper1>
+  //         <Mainvideo autoPlay loop muted>
+  //           <source src="/videos/Mainvideo.mp4" type="video/mp4" />
+  //           비디오를 재생할 수 없습니다. 브라우저가 이 형식을 지원하지 않습니다.
+  //         </Mainvideo>
+  //         <Maintext>FolioFrame</Maintext>
+  //       </VideoWrapper1>
+
+
+
+  //       {/* 템플릿, 해커톤, 채용 */}
+  //       <CardWrapper>
+  //         <PointText4>
+  //           <LogoImage src={Logo} alt="Logo" />
+  //           FolioFrame에는 무엇이 있을까요?
+  //         </PointText4>
+  //         <MainCard />
+  //       </CardWrapper>
+
+  //       {/* 슬라이드 */}
+  //       <SlideWrapper>
+  //         <Slide />
+  //       </SlideWrapper>
+  //     </MainPageWrapper>
+
+  //     {/* 마무리 */}
+  //     <ThanksWrapper>
+  //       <PointText4>FolioFrame</PointText4>
+  //       <PointText5>
+  //         여러분께 소개드립니다. "포폴만들조" 팀은 김태연, 김예은, 조수연,
+  //         최현혜로 구성되어 있으며, 이번 팀 프로젝트1에서는 포트폴리오 제작을
+  //         지원하는 웹사이트 개발을 목표로 하고 있습니다. <br></br>
+  //         저희 팀은 사용자들이 더 나은 서비스를 통해 효과적으로 포트폴리오를
+  //         작성할 수 있도록 최선을 다해 노력하고 있습니다. <br></br>
+  //         앞으로도 지속적인 개선을 통해 더 높은 수준의 서비스를 제공하겠습니다.
+  //       </PointText5>
+  //       <CopyWrapper>
+  //         {/* 구분선 */}
+  //         <Bar></Bar>
+  //         <CopyrightImage src={copyright} alt="저작권 표시" />
+  //         {/* 메인 영상 저작권 */}
+  //         <PointText5>
+  //           평평한 디자인의 모션 그래픽 기하학적 배경_preview
+  //         </PointText5>
+  //         <PointText5>
+  //           https://kr.freepik.com/free-video/motion-graphic-flat-design-geometric-background_3294690#fromView=search&page=1&position=7&uuid=995143c1-4b7b-489b-9250-c1fc132a130b
+  //         </PointText5>
+  //         {/* 공유 영상 저작권 */}
+  //         <PointText5>소셜 미디어 중독자의 모션 그래픽_preview</PointText5>
+  //         <PointText5>
+  //           https://kr.freepik.com/free-video/motion-graphic-person-addicted-social-media_3294138#fromView=search&page=6&position=36&uuid=2c0106e1-e052-401a-8156-6a189382987a
+  //         </PointText5>
+  //         {/* 리소그래픽 영상 저작권 */}
+  //         <PointText5>
+  //           손으로 그린 리소그래프 요소 컬렉션의 모션 그래픽_preview
+  //         </PointText5>
+  //         <PointText5>
+  //           https://kr.freepik.com/free-video/motion-graphic-hand-drawn-risograph-element-collection_3295172#fromView=search&page=1&position=8&uuid=2e65e734-07c3-4cfe-84c9-25c84cf5ea0a
+  //         </PointText5>
+  //         {/* 폰트 저작권 */}
+  //         <PointText5>
+  //           폰트
+  //           https://copyright.keris.or.kr/wft/fntDwnldView?fntGrpId=GFT202408200000000000003
+  //         </PointText5>
+  //       </CopyWrapper>
+  //     </ThanksWrapper>
+  //   </MainContainer>
+  // );
+  
+  // 서버 연결 확인 코드입니다. 이상이 없다면 위의 주석된 코드를 사용해주세요
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    // Django 백엔드의 API 호출
+    axios.get('http://127.0.0.1:8000/api/hello/')
+      .then(response => {
+        setMessage(response.data);  // 응답 데이터를 message 상태로 설정
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
-    <MainContainer>
-      {/* 메인 비디오  */}
-      <MainPageWrapper>
-        <VideoWrapper1>
-          <Mainvideo autoPlay loop muted>
-            <source src="/videos/Mainvideo.mp4" type="video/mp4" />
-            비디오를 재생할 수 없습니다. 브라우저가 이 형식을 지원하지 않습니다.
-          </Mainvideo>
-          <Maintext>FolioFrame</Maintext>
-        </VideoWrapper1>
-
-
-
-        {/* 템플릿, 해커톤, 채용 */}
-        <CardWrapper>
-          <PointText4>
-            <LogoImage src={Logo} alt="Logo" />
-            FolioFrame에는 무엇이 있을까요?
-          </PointText4>
-          <MainCard />
-        </CardWrapper>
-
-        {/* 슬라이드 */}
-        <SlideWrapper>
-          <Slide />
-        </SlideWrapper>
-      </MainPageWrapper>
-
-      {/* 마무리 */}
-      <ThanksWrapper>
-        <PointText4>FolioFrame</PointText4>
-        <PointText5>
-          여러분께 소개드립니다. "포폴만들조" 팀은 김태연, 김예은, 조수연,
-          최현혜로 구성되어 있으며, 이번 팀 프로젝트1에서는 포트폴리오 제작을
-          지원하는 웹사이트 개발을 목표로 하고 있습니다. <br></br>
-          저희 팀은 사용자들이 더 나은 서비스를 통해 효과적으로 포트폴리오를
-          작성할 수 있도록 최선을 다해 노력하고 있습니다. <br></br>
-          앞으로도 지속적인 개선을 통해 더 높은 수준의 서비스를 제공하겠습니다.
-        </PointText5>
-        <CopyWrapper>
-          {/* 구분선 */}
-          <Bar></Bar>
-          <CopyrightImage src={copyright} alt="저작권 표시" />
-          {/* 메인 영상 저작권 */}
-          <PointText5>
-            평평한 디자인의 모션 그래픽 기하학적 배경_preview
-          </PointText5>
-          <PointText5>
-            https://kr.freepik.com/free-video/motion-graphic-flat-design-geometric-background_3294690#fromView=search&page=1&position=7&uuid=995143c1-4b7b-489b-9250-c1fc132a130b
-          </PointText5>
-          {/* 공유 영상 저작권 */}
-          <PointText5>소셜 미디어 중독자의 모션 그래픽_preview</PointText5>
-          <PointText5>
-            https://kr.freepik.com/free-video/motion-graphic-person-addicted-social-media_3294138#fromView=search&page=6&position=36&uuid=2c0106e1-e052-401a-8156-6a189382987a
-          </PointText5>
-          {/* 리소그래픽 영상 저작권 */}
-          <PointText5>
-            손으로 그린 리소그래프 요소 컬렉션의 모션 그래픽_preview
-          </PointText5>
-          <PointText5>
-            https://kr.freepik.com/free-video/motion-graphic-hand-drawn-risograph-element-collection_3295172#fromView=search&page=1&position=8&uuid=2e65e734-07c3-4cfe-84c9-25c84cf5ea0a
-          </PointText5>
-          {/* 폰트 저작권 */}
-          <PointText5>
-            폰트
-            https://copyright.keris.or.kr/wft/fntDwnldView?fntGrpId=GFT202408200000000000003
-          </PointText5>
-        </CopyWrapper>
-      </ThanksWrapper>
-    </MainContainer>
+    <div>
+      <h1>{message}</h1>
+    </div>
   );
 };
 
